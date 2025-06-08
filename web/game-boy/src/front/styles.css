@@ -1,0 +1,311 @@
+/* GUI by Sto - Made with ♥ */
+body {
+    font-family: "Press Start 2P", system-ui;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    overflow: hidden;
+    text-shadow: 1px 1px 0px #000, -1px 1px 0px #000, 1px -1px 0px #000, -1px -1px 0px #000;
+    cursor: url('cursor.png'), auto;
+}
+#body-home{
+  align-items: normal;
+}
+h1, h2{
+    color: white;
+    margin-bottom: 5vh;
+    font-family: "Press Start 2P", system-ui;   
+}
+
+h1{
+  text-shadow: 1px 1px 0px #000, -1px 1px 0px #000, 1px -1px 0px #000, -1px -1px 0px #000, 3px 3px 0px #ff5656;
+}
+
+h2{
+  text-shadow: 1px 1px 0px #000, -1px 1px 0px #000, 1px -1px 0px #000, -1px -1px 0px #000, 3px 3px 0px orange;
+}
+
+
+p{
+    color: aqua;
+    padding-bottom: 2em;
+}
+
+a, button{
+  cursor: url('cursor.png'), auto !important;
+}
+
+a, a:visited{
+  color: aqua;
+}
+
+a:hover{
+  color: yellow;
+}
+
+hr{
+  border-color: blue;
+  border-style: ridge;
+  width: 95%;
+  margin-bottom: 3%;
+}
+
+#login, #register, #post-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    border-radius: 25px;
+    margin-bottom: 1%;
+    padding: 0 5%;
+    border-color: blue;
+    border-style: ridge;
+    background: #000000bf;
+
+}
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+    color: white;
+    line-break: anywhere;
+  }
+li{
+    margin: 5%;
+}
+
+input {
+    display: block;
+    margin: 3% 0;
+    background-color: transparent;
+    color: white;
+    font-family: "Press Start 2P", system-ui;
+    border-style: none;
+}
+
+button {
+    margin: 3% 0;
+    padding: 10px 20px;
+    background-color:transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family:  "Press Start 2P", system-ui;
+    border-radius: 5px;
+}
+
+button:hover {
+    color: yellow;
+}
+
+section{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: transparent;
+}
+
+section label{
+  color: aqua;
+}
+
+.notif{
+    display: none;
+    border-style: hidden;
+    background: transparent;
+    overflow-wrap: break-word;
+}
+
+.feed {
+  margin-top: -7px;
+  margin-right: -5vw;
+  width: 25px;
+  height: 25px;
+  border-radius: 30%;
+  -moz-animation: eat 1s linear 0s infinite;
+  -webkit-animation: eat 1s linear 0s infinite;
+  animation: eat 1s linear 0s infinite;
+}   
+
+
+#new-post{
+  align-items: baseline;
+  display: flex;
+  flex-direction: column;
+}
+
+nav{
+  width: 95%;
+  position: absolute;
+  top: 0;
+}
+
+nav ul{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+nav ul li{
+  margin: 0;
+}
+
+section{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#users-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+table{
+  width: 55vw;
+  text-align: center;
+  color: white;
+}
+
+#post-form{
+  width: max-content;
+}
+
+
+#content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  top: 50px;
+  overflow-y: auto;
+  z-index: 1;
+  position: relative;
+
+}
+
+table, th, td {
+  border: 1px solid blue;
+  border-collapse: collapse; 
+}
+
+th, td {
+  padding: 10px; 
+}
+
+tr{
+  background-color: black;
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
+  color: white;
+  margin-bottom: 1%;
+  width: 100vw;
+  text-align: center;
+}
+
+
+#login-button{
+  display: flex;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3vh 5%;
+}
+
+
+#user-posts-container{
+  overflow: hidden;
+}
+
+#user-details{
+  flex-direction: column;
+  align-items: center;
+}
+
+
+#posts-container{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  width: 75vw;
+  word-wrap: anywhere;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 65vh;
+  background-color: black;
+
+  border: blue;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+  border-style: ridge;
+  padding: 5px;
+
+  scrollbar-color: blue blue;
+  scrollbar-width: auto;     
+
+}
+
+
+#posts-container .post {
+  border: 3px solid blue;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#posts-container h3 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+#posts-container p {
+  margin: 0;
+  font-size: 1em;
+}
+
+
+.creation-data{
+  color: darkcyan;
+}
+
+
+#login-button a{
+  padding: 1em;
+}
+
+
+
+canvas{
+	top:0;
+	left:0;
+  position: fixed;
+  z-index: -1;
+}
+
+
+div{
+  position: relative;
+  z-index: 1;
+}

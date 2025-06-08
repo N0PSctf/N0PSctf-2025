@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Signup{% endblock %}
+
+{% block content %}
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Create account</a></li>
+      </ul>
+    </nav>
+    <div class="casinops">
+      <h1>CASINOPS</h1>
+    </div>
+
+    <h2>Create an account</h2>
+    <form action="#" method="post">
+      <label for="username">Username:</label>
+      <input type="text" name="username" required/>
+      <label for="email">Email:</label>
+      <input type="email" name="email" required/>
+      <label for="password">Password:</label>
+      <input type="password" name="password" required/>
+      <button type="submit" class="golden-btn">Submit</button>
+    </form>
+  </body>
+{% endblock %}

@@ -1,0 +1,98 @@
+body{
+    cursor: auto;
+    background-color: black;
+}
+
+
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure it stays behind other content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: orange; /* Initial color */
+    animation: colorShift 2s infinite alternate; /* Animate background color */
+}
+
+
+@keyframes colorShift {
+    0% {
+        background-color: orange; /* Blue */
+    }
+    100% {
+        background-color: orangered; /* Green */
+    }
+}
+
+
+/* Center the form on the page */
+form {
+    position: relative;
+    z-index: 1; /* Ensure it stays above the background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
+button {
+    position: absolute;
+    left: 50%;
+    top: 67vh;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    font-family: 'Mouse Memoirs';
+    border-radius: 50px;
+    background-color: white; /* Button background color */
+    color: black; /* Button text color */
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: x-large;
+    box-shadow: 0 0 10px rgb(255, 102, 0); /* Initial glow */
+    animation: glowPulse 1s infinite alternate; /* Glow animation */
+}
+
+/* Keyframes for glowing effect */
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 196, 0, 0.7); /* Dim glow */
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 196, 0, 1); /* Bright glow */
+    }
+}
+
+
+.eyes-container {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .eye {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .pupil {
+    width: 60px;
+    height: 60px;
+    background-color: #000;
+    border-radius: 50%;
+    position: absolute;
+    /* animation: move 8s infinite; */
+  }
+
+

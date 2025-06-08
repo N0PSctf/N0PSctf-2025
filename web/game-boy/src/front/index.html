@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Playwrite+DK+Uloopet&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Playwrite+DK+Uloopet&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Welcome to your BBE, Best Blog Ever!</h1>
+    <p>Where your thoughts stack up, just like these blocks :) </p>
+  <!-- '\x90::: \x90:::'\x90\x90::' \x90\x90\x90::::'\x90\x90\x90::::::'\x90\x90:'\x90\x90\x90:\x90\x90\x90:
+        \x90\:: \x90::'\x90..\x90:  \x90.... \x90:'\x90... :::'::....\x90:... .:: :::\x90....::\x90.......::
+        \x90\x: \x90:'\x90::::\x90: \x90:::: \x90:\x90:::..:: ::::::\x90:::::     ...\x90::::::\x90.......::
+        \x90 \x \x90: \x90::::\x90: \x90\x90\x90::..\x90\x90\x90::: \x90::::::::::...\x90:::...\x90\x90.....
+        \x90. \x90\x: \x90:   \x90::\x90: .......:::::::.....\x90:::\x90:::::::   :::\x90...:::\x90.......::
+        \x90:. \x90\. \x90:: \x90:: \x90:::::::::::'::::::::\x90::: :\x90:: :::::::::\x90::::::\x90.......::
+        \x90::. \x90::. \x90\x90::: \x90::::::: :..\x90\x90\x90::...... \x90\x90:::::\x90:::: :\x90.......::
+                                                                                                https://www.nops.re/ -->
+    <div id="register">
+        <h2>Register</h2>
+        <form id="register-form">
+            <input type="text" id="register-username" placeholder="Username" required>
+            <input type="text" id="register-email" placeholder="Email" required>
+            <input type="password" id="register-password" placeholder="Password" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="notif">
+        <p id="notif-register"></p>
+    </div>
+    <br>
+
+    
+    <div id="login-button">
+        Do you already have an account ? 
+        <br>
+        <a href="/login.html">Login</a>
+    </div>
+
+    <canvas id="backgroundCanvas"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+    <script src="script.js"></script>
+    <script src="tetris.js"></script>
+</body>
+</html>

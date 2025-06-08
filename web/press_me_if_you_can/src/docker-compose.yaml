@@ -1,0 +1,7 @@
+services:
+  press-me:
+    image: php:8.2-apache
+    ports:
+    - '80:80'
+    volumes:
+    - ./src:/var/www/html

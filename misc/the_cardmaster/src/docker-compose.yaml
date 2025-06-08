@@ -1,0 +1,6 @@
+services:
+  the-cardmaster:
+    build:
+      context: .
+    environment:
+      DISCORD_BOT_KEY: "your_discord_bot_token"

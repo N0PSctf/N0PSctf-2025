@@ -1,0 +1,26 @@
+services:
+    ssti:
+        build:
+            context: ./
+        ports:
+            - 5000:5000
+        depends_on:
+          casino-mysql:
+                condition: service_healthy
+                restart: true
+
+    casino-mysql:
+        image: mysql
+        volumes:
+            - ./mysql:/docker-entrypoint-initdb.d
+        environment:
+            MYSQL_ROOT_PASSWORD: nTf8NV5d3H224gdJ
+        healthcheck:
+            test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -pnTf8NV5d3H224gdJ --silent"]
+            interval: 10s
+            timeout: 5s
+            retries: 5
+
+networks:
+    frontend:
+    backend:

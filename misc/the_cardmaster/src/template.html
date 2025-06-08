@@ -1,0 +1,204 @@
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">
+    <style>
+
+        @page {
+            size: 850px 1170px;
+            margin: 0; /* Remove margins if needed */
+        }
+        
+        body {
+            width: 850px;  /* Define your viewport width */
+            height: 1200px; /* Define your viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Mouse Memoirs';
+            font-size: 1.5em;
+            background: black; /*url('https://www.nops.re/static/assets/bgt.png');*/
+            background-repeat: no-repeat;
+            background-position: center; 
+            color: black;
+            margin: 0 !important;
+        }
+       
+        h2{
+            font-family: "Bangers";
+            font-size: 2em;
+            color: black;
+            margin: 0;
+            /* letter-spacing: -1px; */
+            text-shadow: 
+                -1px -1px 0 black,  
+                1px -1px 0 black,
+                -1px  1px 0 black,
+                1px  1px 0 black
+            
+        }
+
+        i{
+            color: black;
+            text-shadow: 
+                -1px -1px 0 black,  
+                1px -1px 0 black,
+                -1px  1px 0 black,
+                1px  1px 0 black
+        }
+
+        img{
+            border-style: none;
+            width: 700px;
+            margin: auto;
+        }
+
+
+
+        .card{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            width: 850px; 
+            height: 1215px; 
+            border-style: none;
+            padding: 0% 17% 0% 17%;
+            border-radius: 25px;
+            box-sizing: border-box;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8), 0px 6px 10px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 251, 255, 0.8), 0 0 30px rgba(255, 251, 19, 0.6), 0 0 50px rgba(255, 251, 19, 0.4);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            left: 0;
+            position: relative;
+            margin: 0;
+            margin-top: -50px;
+        }
+
+
+      /* osintopia cards */
+
+        .card.osintopia.common{
+            background-image: url('https://www.nops.re/nopstgccards/osintbronze.png');
+        }
+        .card.osintopia.rare{
+            background-image: url('https://www.nops.re/nopstgccards/osintsilver.png');
+        }
+        .card.osintopia.epic{
+            background-image: url('https://www.nops.re/nopstgccards/osintgold.png');
+        }
+        .card.osintopia.legendary{
+            background-image: url('https://www.nops.re/nopstgccards/osintcristal.png');
+        }
+
+
+      /* webtopia cards */
+
+      .card.webtopia.common{
+            background-image: url('https://www.nops.re/nopstgccards/webbronze.png');
+        }
+        .card.webtopia.rare{
+            background-image: url('https://www.nops.re/nopstgccards/websilver.png');
+        }
+        .card.webtopia.epic{
+            background-image: url('https://www.nops.re/nopstgccards/webgold.png');
+        }
+        .card.webtopia.legendary{
+            background-image: url('https://www.nops.re/nopstgccards/webcristal.png');
+        }
+
+    /* pwntopia cards */
+
+      .card.pwntopia.common{
+            background-image: url('https://www.nops.re/nopstgccards/pwnbronze.png');
+        }
+        .card.pwntopia.rare{
+            background-image: url('https://www.nops.re/nopstgccards/pwnsilver.png');
+        }
+        .card.pwntopia.epic{
+            background-image: url('https://www.nops.re/nopstgccards/pwngold.png');
+        }
+        .card.pwntopia.legendary{
+            background-image: url('https://www.nops.re/nopstgccards/pwncristal.png');
+        }
+
+
+    /* cryptopia cards */
+
+        .card.cryptopia.common{
+            background-image: url('https://www.nops.re/nopstgccards/cryptobronze.png');
+        }
+        .card.cryptopia.rare{
+            background-image: url('https://www.nops.re/nopstgccards/cryptosilver.png');
+        }
+        .card.cryptopia.epic{
+            background-image: url('https://www.nops.re/nopstgccards/cryptogold.png');
+        }
+        .card.cryptopia.legendary{
+            background-image: url('https://www.nops.re/nopstgccards/cryptocristal.png');
+        }
+
+
+
+        .title{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0;
+            margin-top: 550px;
+        }
+
+        .powers{
+            padding: 5em 7% 15% 7%;
+            font-size: 1.75em;
+            text-align: center;
+        }
+
+        .footer{
+            margin-top: 70px; 
+            text-align: center;
+        }
+
+        .profile{
+            z-index: -1;
+            position: absolute;
+            margin: 0;
+            margin-top:31px;
+            left:75px;
+        }
+
+        .footer pre{
+            margin: 1em;    
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="card card_class card_rarity">
+
+        
+        <div class="profile">
+            <img src="profile_picture"></img>
+        </div>
+
+        <div class="title">
+            <h2>display_name</h2>
+            <i>discord_tag</i>
+        </div>
+
+        <div class="powers">
+            <b>abilities</b>
+        </div>
+        <div class="footer">
+            <pre>card_id</pre>
+        </div>
+
+    </div>
+</body>
+
+</html>

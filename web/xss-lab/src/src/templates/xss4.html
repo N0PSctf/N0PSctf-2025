@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}XSS 4/4{% endblock %}
+
+{% block header %}XSS ME 4/4{% endblock %}
+
+{% block filter %}You have to bypass this filter:
+```python
+def filter_4(payload):
+    regex = "(?i:(.*(/|script|(&lt;/.*&gt;)|document|cookie|eval|string|(\"|'|`).*(('.+')|(\".+\")|(`.+`)).*(\"|'|`)).*))|(on\w+\s*=)|\+|!"
+    if re.match(regex, payload):
+        return "Nope"
+    return payload
+```{% endblock %}

@@ -1,0 +1,11 @@
+services:
+  xss-lab:
+    build:
+      context: ./
+    ports:
+      - 80:80
+    networks:
+      - xss_lab_network
+
+networks:
+  xss_lab_network:

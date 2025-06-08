@@ -1,0 +1,4 @@
+discord.py==2.3.2
+pdf2image==1.17.0
+python-dotenv==1.0.1
+weasyprint

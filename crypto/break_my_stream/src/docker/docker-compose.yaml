@@ -1,0 +1,6 @@
+services:
+  break_my_stream_1:
+    build:
+      context: ./
+    ports:
+      - 1234:1234

@@ -1,0 +1,6 @@
+0000000000000000000000000000000000000000 7a58eff2597c4aa7fd65cb8087609ffa1043bd7f gitb0ss <gitb0ss@nops.topia> 1746452251 +0200	commit (initial): best blog ever ready to gooo
+7a58eff2597c4aa7fd65cb8087609ffa1043bd7f 7a58eff2597c4aa7fd65cb8087609ffa1043bd7f gitb0ss <gitb0ss@nops.topia> 1746452265 +0200	checkout: moving from master to dev
+7a58eff2597c4aa7fd65cb8087609ffa1043bd7f bb5273993121d77fdb1e743cee8d29ed762ebb86 gitb0ss <gitb0ss@nops.topia> 1746452334 +0200	commit: true secret jwt secret
+bb5273993121d77fdb1e743cee8d29ed762ebb86 7a58eff2597c4aa7fd65cb8087609ffa1043bd7f gitb0ss <gitb0ss@nops.topia> 1746452342 +0200	checkout: moving from dev to master
+7a58eff2597c4aa7fd65cb8087609ffa1043bd7f 41b4cea2e90da0498605077f5361e0cc65890899 gitb0ss <gitb0ss@nops.topia> 1746452368 +0200	commit: removed debug mode ^^'
+41b4cea2e90da0498605077f5361e0cc65890899 bb5273993121d77fdb1e743cee8d29ed762ebb86 gitb0ss <gitb0ss@nops.topia> 1746452375 +0200	checkout: moving from master to dev

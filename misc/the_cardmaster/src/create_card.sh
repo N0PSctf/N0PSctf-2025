@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#/app/create_card.sh '{card_class}' '{display_name}' '{discord_tag}' '{', '.join(card_abilities)}' '{profile_picture}' '{id}' '{card_rarity_name}'
+
+find /tmp -iname *.pdf -delete 2>/dev/null
+find /tmp -iname *.html -delete 2>/dev/null
+
+uuid=$(cat /proc/sys/kernel/random/uuid)
+
+cat /app/template.html \
+| sed -e "s/card_class/${1}/g" \
+| sed -e "s/display_name/${2}/g" \
+| sed -e "s/discord_tag/${3}/g" \
+| sed -e "s/abilities/${4}/g" \
+| sed -e "s/profile_picture/${5}/g" \
+| sed -e "s/card_id/${6}/g" \
+| sed -e "s/card_rarity/${7}/g" \
+> /tmp/$uuid.html
+
+python3 -c "import weasyprint; weasyprint.HTML('/tmp/${uuid}.html').write_pdf('/tmp/${uuid}.pdf')"
+
+pdftoppm -singlefile -jpeg -r 300 /tmp/$uuid.pdf /tmp/$uuid
+
+echo /tmp/$uuid.jpg

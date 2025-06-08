@@ -1,0 +1,6 @@
+services:
+  gbees:
+    build:
+      context: ./
+    ports:
+      - 1234:1234

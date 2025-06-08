@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<body>
+	<nav>
+	<ul>
+        <li><a href="/logout">Logout</a></li>
+        <li><a href="/export">Export account data</a></li>
+	</ul>
+	</nav>
+	<div class="status casinops">
+		<h1>CASINOPS</h1>
+		<div class="numbers">
+			<div id="money">
+				Your Money : 
+				<p id="player-Money">0</p>
+			</div>
+
+			<div id="jackpot-div">
+				Jackpot : 
+				<p id="jackpot">0</p>
+			</div>
+		</div>
+	</div>
+
+	<div id="app">
+		<div class="doors">
+		  <div class="door">
+			<div class="boxes">
+			  <div class="box">❓</div> 
+			</div>
+		  </div>
+		
+		  <div class="door">
+			<div class="boxes">
+			  <div class="box">❓</div> 
+			</div>
+		  </div>
+		
+		  <div class="door">
+			<div class="boxes">
+			  <div class="box">❓</div> 
+			</div>
+		  </div>
+		  
+		  <div class="door">
+			<div class="boxes">
+			  <div class="box">❓</div> 
+			</div>
+		  </div>
+	  
+		  <div class="door">
+			<div class="boxes">
+			  <div class="box">❓</div> 
+			</div>
+		  </div>
+		</div>
+	  
+		<div class="buttons">
+		  <button id="play-button" class="golden-btn">Spin</button>
+		  <button id="reset-button" class="golden-btn">Reset</button>
+		</div>
+	  </div>
+	  
+
+	<script>(function () {
+
+		// Mapping 
+		const emojiMap = {
+		  "7": "7️⃣​",
+		  "100": "💯",
+		  "coin": "🪙​",
+		  "rocket": "🚀​",
+		  "party": "🎉​",
+		  "skull": "💀"
+		};
+	  
+		const doors = document.querySelectorAll(".door");
+	  
+		document.getElementById("play-button").addEventListener("click", spin);
+		document.getElementById("reset-button").addEventListener("click", () => init(true));
+	  
+		function spin() {
+		  fetch("/play", {
+			method: "GET",
+			credentials: "include",
+		  })
+		  .then(response => {
+			if (response.status === 401) {
+			  window.location.href = "/login";
+			  return;
+			}
+			return response.json();
+		  })
+		  .then(data => {
+			if (!data) return;
+	  
+			const result = data.result;
+			const emojiResult = result.map(item => emojiMap[item]);
+	  
+			init( 1, emojiResult);
+	  
+			// Doors spinning
+			let delay = 0;
+			doors.forEach((door, index) => {
+			  setTimeout(() => {
+				spinDoor(door, emojiResult[index])
+				  .then(() => {
+					if (index === doors.length - 1) {
+					  document.getElementById("player-Money").textContent = data.money;
+					  document.getElementById("jackpot").textContent = data.jackpot;
+					}
+				  });
+			  }, delay);
+	  
+
+			  delay += 100; 
+			});
+
+		  })
+		  .catch(error => {
+			console.error("Error spinning:", error);
+		  });
+		}
+	  
+		function spinDoor(door, finalResult) {
+		  return new Promise((resolve) => {
+			const boxes = door.querySelector(".boxes");
+	  
+			boxes.addEventListener('transitionend', () => {
+			 
+			  const boxElements = boxes.querySelectorAll(".box");
+			  if (boxElements.length) {
+				boxElements.forEach(box => {
+				  box.textContent = finalResult;
+				});
+			  }
+	  
+			  resolve();
+			}, { once: true });
+	  
+			boxes.style.transform = `translateY(0)`;
+		  });
+		}
+	  
+		function init(duration = 1, result = null) {
+		  doors.forEach((door, index) => {
+			door.dataset.spinned = "0";
+	  
+			const boxes = door.querySelector(".boxes");
+			const boxesClone = boxes.cloneNode(false);
+	  
+			const pool = result ? result : ["❓"]; 
+	  
+			for (let i = pool.length - 1; i >= 0; i--) {
+			  const box = document.createElement("div");
+			  box.classList.add("box");
+			  box.style.width = door.clientWidth + "px";
+			  box.style.height = door.clientHeight + "px";
+			  box.textContent = pool[i]; 
+			  boxesClone.appendChild(box);
+			}
+	  
+			const spinsMultiplier = 11;
+			boxesClone.style.transitionDuration = `${duration > 0 ? duration : 1}s`;
+			boxesClone.style.transform = `translateY(-${door.clientHeight * (pool.length - 1) * spinsMultiplier}px)`;
+	  
+			door.replaceChild(boxesClone, boxes);
+		  });
+		}
+	  
+		init();
+	  
+	  })();
+	  
+	  
+	</script>
+</body>
+{% endblock %}

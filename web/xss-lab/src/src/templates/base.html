@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css" integrity="sha512-Ya9H+OPj8NgcQk34nCrbehaA0atbzGdZCI2uCbqVRELgnlrh8vQ2INMnkadVMSniC54HChLIh5htabVuKJww8g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+    <style>
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+        }
+    
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+    </style>
+  </head>
+  <body class="markdown-body">
+    <md-block>
+        # {% block header %}{% endblock %}
+        Write a payload to be sent to the bot! Your goal is to steal his cookies.
+        
+        {% block filter %}{% endblock %}
+        <form onsubmit="sendLink(); return false">
+            <input type="text" id="payload" oninput="updateUrl()"/>
+            <input type="submit" value="Send this payload"/>
+        </form>
+        <b><p id="url"></p></b>
+        <p id="result">{{ payload|safe }}</p>
+    </md-block>
+</body>
+<script>
+    function updateUrl() {
+        document.getElementById("url").textContent = "Bot will visit " + location.protocol + '//' + location.host + location.pathname + "?payload=" + encodeURIComponent(document.getElementById("payload").value);
+    }
+
+    async function sendLink() {
+        await fetch(location.protocol + '//' + location.host + location.pathname, {
+            method: "POST",
+            body: "payload="+encodeURIComponent(document.getElementById("payload").value),
+            headers: 
+                {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+        }).then((response) => response.text())
+        .then(text => {
+            document.getElementById("url").innerText = text;
+        });
+    }
+</script>
+</html>

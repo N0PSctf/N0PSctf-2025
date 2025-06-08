@@ -1,0 +1,6 @@
+Flask==3.0.3
+flask_jwt_extended==4.6.0
+SQLAlchemy==2.0.31
+sqlalchemy_jsonfield==1.0.2
+Werkzeug==3.0.3
+mysqlclient==2.2.4

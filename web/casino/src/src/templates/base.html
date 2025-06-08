@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>{% block title %}{% endblock %}</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+																								
+	<style>
+	body{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background-image: conic-gradient( #47254d 0, #47254d 5%, #301934 5%, #301934 10%, #47254d 10%, #47254d 15%, #301934 15%, #301934 20%, #47254d 20%, #47254d 25%, #301934 25%, #301934 30%, #47254d 30%, #47254d 35%, #301934 35%, #301934 40%, #47254d 40%, #47254d 45%, #301934 45%, #301934 50%, #47254d 50%, #47254d 55%, #301934 55%, #301934 60%, #47254d 60%, #47254d 65%, #301934 65%, #301934 70%, #47254d 70%, #47254d 75%, #301934 75%, #301934 80%, #47254d 80%, #47254d 85%, #301934 85%, #301934 90%, #47254d 90%, #47254d 95%, #301934 95%, #301934 100% );
+		background-size: cover;
+		background-repeat: no-repeat;
+		width: 100vw;
+		height: 100vh;
+		overflow: hidden;
+	}
+
+	h1{
+		font-family: "Limelight";
+		background: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		font-size: xxx-large;
+		padding: 0 5vw;
+	}
+
+	h2{
+		font-family: "Limelight";
+		background: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		font-size: xx-large;
+	}
+
+	a, p{
+		font-family: "Limelight";
+	}
+
+	nav{
+		top: 0;
+		position: absolute;
+		display: flex;
+		flex-direction: row;
+		width: 105vw;
+		color: white;
+		background: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
+		border-bottom-style: ridge;
+		border-color: gold;
+		margin: auto;
+	}
+	nav ul{
+		display: flex;
+		flex-direction: row;
+		width: 100vw;
+		color: white;
+		justify-content: space-around;
+		list-style-type: none;
+	}
+
+	form{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 2%;
+		background: purple;
+		border-radius: 25px;
+		color: white;
+		font-family: "Limelight";
+	}
+
+	form input{
+		margin-bottom: 3vh;
+		background: #ffffff85
+	}
+
+
+	.golden-btn {
+	display: inline-block;
+	outline: none;
+	font-family: inherit;
+	font-size: 1em;
+	box-sizing: border-box;
+	border: none;
+	border-radius: .3em;
+	height: 2.75em;
+	line-height: 2.5em;
+	text-transform: uppercase;
+	padding: 0 1em;
+	box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(110,80,20,.4),
+				inset 0 -2px 5px 1px rgba(139,66,8,1),
+				inset 0 -1px 1px 3px rgba(250,227,133,1);
+	background-image: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
+	border: 1px solid #a55d07;
+	color: rgb(120,50,5);
+	text-shadow: 0 2px 2px rgba(250, 227, 133, 1);
+	cursor: pointer;
+	transition: all .2s ease-in-out;
+	background-size: 100% 100%;
+	background-position:center;
+	}
+	.golden-btn:focus,
+	.golden-btn:hover {
+	background-size: 150% 150%;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23),
+					inset 0 -2px 5px 1px #b17d10,
+					inset 0 -1px 1px 3px rgba(250,227,133,1);
+	border: 1px solid rgba(165,93,7,.6);
+	color: rgba(120,50,5,.8);
+	}
+	.golden-btn:active {
+	box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(110,80,20,.4),
+				inset 0 -2px 5px 1px #b17d10,
+					inset 0 -1px 1px 3px rgba(250,227,133,1);
+	}
+
+	.casinops{
+		border-radius: 29px;
+		border-style: dotted;
+		border-color: gold;
+		border-width: 0.5vw;
+		background: radial-gradient(circle, rgb(253, 57, 45) 0%, rgb(110, 1, 1) 100%);
+	}
+
+	.casinops:hover{
+		cursor: pointer;
+		background: radial-gradient(circle, rgba(253,57,45,1) 22%, rgba(161,0,0,1) 100%);
+		box-shadow: 0 0 15px 5px rgba(255, 223, 0, 0.7);
+	}
+
+	.doors {
+		display: flex;
+		background-image: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
+		border-radius: 15px;
+		padding: 1%;
+		}
+
+	.door {
+		background: #fafafa;
+		box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.4) inset;
+
+		width: 100px;
+		height: 150px;
+		overflow: hidden;
+
+		border-radius: 1ex;
+		margin: 1ch;
+	}
+
+	.boxes {
+		/* transform: translateY(0); */
+		transition: transform 0.5s ease-in-out;
+	}
+
+	.box {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		font-size: 3rem;
+	}
+
+	.buttons {
+		margin: 1rem 0 2rem 0;
+		display: flex;
+		flex-direction: revert;
+		justify-content: center;
+		align-items: center;
+	}
+
+	button {
+		cursor: pointer;
+
+		font-size: 1.2rem;
+		text-transform: uppercase;
+
+		margin: 0 0.2rem 0 0.2rem;
+	}
+
+	.status{
+		justify-content: space-around;
+		width: 50vw;
+		border-radius: 17px;
+		margin-bottom: 5vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		color: gold;
+		font-family: "Limelight";
+		font-size: xx-large;
+	}
+
+	.status div{
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+		gap: 1em;
+
+	}
+	.status div p{
+		background: #fff;
+		border-radius: 5px;
+		padding: 0.5em;
+		color: black
+	}
+	.status div p:hover{
+		color: goldenrod;
+	}
+
+	.numbers{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		width: 50vw;
+	}
+	</style>
+</head>
+{% block content %}{% endblock %}
+</html>

@@ -1,0 +1,38 @@
+services:
+    front:
+        build:
+            context: ./php_front
+        ports:
+            - 80:80
+        networks:
+          - frontend
+          - internal
+
+    mysql:
+        image: mysql
+        volumes:
+            - ./mysql_back:/docker-entrypoint-initdb.d
+        networks:
+            - backend
+        environment:
+            TZ: "Europe/Rome"
+            MYSQL_ROOT_PASSWORD: "6bba23db7f6df87eb215120d86e8ebd8001a695dabafcf8d6ac4b437ab06b716"
+
+    redis:
+        image: redis
+        networks:
+            - internal
+
+    backend:
+        build:
+            context: ./php_back
+        depends_on:
+          - mysql
+        networks:
+          - backend
+          - internal
+
+networks:
+    frontend:
+    internal:
+    backend:

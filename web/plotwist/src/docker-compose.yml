@@ -1,0 +1,12 @@
+version: "3"
+services:
+  plotwist:
+    build: ./ 
+    ports:
+      - "80:80"
+    networks:
+      - backend
+  
+networks:
+  backend:
+    driver: bridge

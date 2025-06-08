@@ -1,0 +1,29 @@
+services:
+
+  front:
+    build:
+      context: ./front
+    ports:
+      - 80:80
+    depends_on:
+      - mariadb
+
+  api:
+    build:
+      context: ./
+    depends_on:
+      - mariadb
+
+  mariadb:
+    image: mariadb:latest
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d
+    env_file:
+      - .env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    healthcheck:
+      test: ["CMD", "bash", "-c", "[ -S /run/mysqld/mysqld.sock ] && mariadb-admin ping -u root -p${MYSQL_ROOT_PASSWORD}"]
+      interval: 1s
+      retries: 30
+      start_period: 10s

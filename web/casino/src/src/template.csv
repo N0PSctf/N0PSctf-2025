@@ -1,0 +1,5 @@
+USERNAME,{{ username }}
+MAIL,{{ email }}
+INSCRIPTION DATE,{{ created_at }}
+MONEY,{{ money }}
+STATS,{{ stats }}

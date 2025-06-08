@@ -1,0 +1,16 @@
+service crypto
+{
+  disable = no
+  socket_type = stream
+  protocol = tcp
+  wait = no
+  user = crypto
+  type = UNLISTED	
+  bind = 0.0.0.0
+  port = 12431
+  server = /home/crypto/redir.sh
+  rlimit_as = 1024M
+  flags = REUSE
+  per_source = 8
+  rlimit_cpu = 20
+}

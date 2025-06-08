@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plotwist</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            cursor: grab;
+            margin: 0;
+            color: white;
+        }
+
+        #container {
+            width: 100vw;
+            height: 100vh;
+            background: rgb(1, 4, 0);
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 10; 
+            padding: 20px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background:#00000069;
+        }
+
+        #container::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 1px;
+            height: 100%;
+            background-color: #fff;
+            box-shadow: 0 0 5px 1px #fff;
+        }
+
+        #flashlight,
+        #flashlight-reflection {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.95);
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            box-shadow: 0 0 20px 12px #ffffff;
+            border-radius: 50%;
+        }
+
+        #flashlight-reflection {
+            left: auto;
+            right: 50px;
+            box-shadow: 0 0 20px 12px #eb4747;
+        }
+
+        .btn {
+            cursor: pointer;
+            border: solid rgb(255, 255, 255);
+            font-size: 14px;
+            color: rgb(255, 255, 255);
+            padding: 10px 30px;
+            transition: 2s;
+            width: 335px;
+            box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+            border-radius: 50px;
+            background: rgba(0, 0, 0);
+            margin: 5vh;
+            }
+
+        .btn:hover{
+            color: rgb(255, 255, 255);
+            width: 337px;
+            background: rgb(32, 32, 32);
+            border-color: rgb(255, 120, 120);
+            border-width: 2px;
+            border-style: solid;
+            } 
+            
+        #letter{
+            background: black;
+            width: 75vw;
+        }
+
+    </style>
+    <script>
+        async function sendLetter() {
+            const apiSelection = document.getElementById('apiSelect').value;
+            const letterContent = document.getElementById('letter').value;
+
+            const response = await fetch(apiSelection, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ letter: letterContent }) 
+            });
+
+
+            if (response.ok) {
+                const data = await response.json();
+                document.getElementById('response').innerText = `Response: ${data.msg}`;
+            } else {
+                document.getElementById('response').innerText = 'Error sending letter.';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="flashlight"></div>
+      <div id="flashlight-reflection"></div>
+    </div>
+
+    <div id="content">
+        <h1>Which side of me are you?</h1>
+
+        <p>Write your letter and choose the side you wish to send it to. <br> No more gray, only Light or Dark.<br> Once sent, you will receive a response according to your choice.</p>
+
+        <label for="apiSelect">Choose your side:</label>
+        <select id="apiSelect" class="btn">
+            <option value="/api/lordhttp">Dark Side</option>
+            <option value="/api/noopsy">Light Side</option>
+        </select>
+        <br><br>
+
+        <label for="letter">Write your letter:</label>
+        <textarea id="letter" rows="6" cols="40"></textarea>
+        <br><br>
+
+        <button onclick="sendLetter()" class="btn">Send Letter</button>
+        <p id="response"></p>
+    </div>
+
+    <script>
+        const container = document.getElementById("content");
+        const bounds = container.getBoundingClientRect();
+        const flashlight = document.getElementById("flashlight");
+        const flashlightReflection = document.getElementById("flashlight-reflection");
+
+        function moveFlashlight(e) {
+
+            const x = e.clientX - bounds.left;
+            const y = e.clientY - bounds.top;
+            flashlight.style.left = `${x - 20}px`;
+            flashlight.style.top = `${y - 20}px`;
+
+        flashlightReflection.style.right = flashlight.style.left;
+        flashlightReflection.style.top = flashlight.style.top;
+        }
+
+        container.addEventListener("mousemove", moveFlashlight);
+    </script>
+</body>
+</html>
