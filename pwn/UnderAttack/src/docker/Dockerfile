@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     socat\
     && apt-get clean 
 
-COPY OntheDocker/. .
+COPY src/. .
 
 
 RUN chmod +x ladybug_app
